@@ -1,0 +1,33 @@
+## date = '2023-04-11 18:11:32.876272'
+## execstr = '/Users/annkrg/[/Applications/miniconda3]/envs/plastid/bin/reformat_transcripts --annotation_files Human_mtDNA_polyA2_mod3.gff --annotation_format GFF3 --output_format BED --extra_columns gene_id Notes -- Human_mtDNA_polyA2_mod3_extended.bed'
+## args = {  
+##          'add_three'            : False,,
+##          'annotation_files'     : ['Human_mtDNA_polyA2_mod3.gff'],,
+##          'annotation_format'    : 'GFF3',,
+##          'bed_extra_columns'    : 0,,
+##          'empty_value'          : 'na',,
+##          'extra_columns'        : ['gene_id', 'Notes'],,
+##          'gff_cds_types'        : set(['CDS_predicted', 'CDS_indpendently_known', 'CDS_fragment', 'CDS']),,
+##          'gff_exon_types'       : set(['noncoding_exon', 'exon_of_single_exon_gene', 'three_prime_coding_exonfive_prime_noncoding_exon', 'three_prime_noncoding_exon', 'interior_exon', 'interior_coding_exon', 'coding_exon', 'pseudogenic_exon', 'exon', 'five_prime_coding_exon']),,
+##          'gff_transcript_types' : set(['C_D_box_snoRNA', 'mRNA_recoded_by_translational_bypass', 'telomeric_transcript', 'DsrA_RNA', 'large_subunit_rRNA', 'ARRET', 'scRNA', 'polycistronic_mRNA', 'asparaginyl_tRNA', 'non_functional_homolog_of_pseudogenic_transcript', 'rRNA_23S', 'mRNA_with_minus_2_frameshift', 'antisense_RNA', 'rRNA_18S', 'Y_RNA', 'monocistronic_mRNA', 'antisense_lncRNA', 'small_subunit_rRNA', 'moR', 'CsrB_RsmB_RNA', 'U6atac_snRNA', 'snoRNA', 'RNase_P_RNA', 'RNase_MRP_RNA', 'rRNA', 'rRNA_25S', 'IoR', 'pseudouridylation_guide_snoRNA', 'anti_ARRET', 'rasiRNA', 'telomerase_RNA', 'U4_snRNA', 'alanyl_tRNA', 'mRNA_with_plus_2_frameshift', 'lysyl_tRNA', 'rRNA_cleavage_RNA', 'snRNA', 'U12_snRNA', 'mRNA', 'enzymatic_RNA', 'threonyl_tRNA', 'GcvB_RNA', 'U6_snRNA', 'tRNA', 'piRNA', 'enhancerRNA', 'aspartyl_tRNA', 'class_I_RNA', 'U2_snRNA', 'ARIA', 'cysteinyl_tRNA', 'mRNA_recoded_by_codon_redefinition', 'lincRNA', 'guide_RNA', 'vault_RNA', 'isoleucyl_tRNA', 'intronic_lncRNA', 'methylation_guide_snoRNA', 'TERRA', 'edited_transcript', 'priRNA', 'transcript', 'methionyl_tRNA', 'glutamyl_tRNA', 'polyadenylated_mRNA', 'phenylalanyl_tRNA', 'valyl_tRNA', 'prolyl_tRNA', 'miRNA', 'RNA_6S', 'mRNA_with_frameshift', 'shRNA', 'H_ACA_box_snoRNA', 'histidyl_tRNA', 'dicistronic_mRNA', 'glycyl_tRNA', 'mature_transcript', 'rRNA_21S', 'edited_mRNA', 'pyrrollysyl_tRNA', 'class_II_RNA', 'mRNA_with_plus_1_frameshift', 'rRNA_5S', 'U1_snRNA', 'ncRNA', 'siRNA', 'tmRNA', 'pseudogenic_transcript', 'spot42_RNA', 'U3_snoRNA', 'U5_snRNA', 'tasiRNA', 'arginyl_tRNA', 'lnc_RNA', 'MicF_RNA', 'RprA_RNA', 'U4atac_snRNA', 'leucyl_tRNA', 'trans_spliced_mRNA', 'small_regulatory_ncRNA', 'tyrosyl_tRNA', 'glutaminyl_tRNA', 'selenocysteinyl_tRNA', 'U11_snRNA', 'RRE_RNA', 'U14_snoRNA', 'OxyS_RNA', 'SRP_RNA', 'tryptophanyl_tRNA', 'rRNA_16S', 'edited_transcript_by_A_to_I_substitution', 'mRNA_with_minus_1_frameshift', 'rRNA_28S', 'recoded_mRNA', 'seryl_tRNA', 'rRNA_5_8S']),,
+##          'maxmem'               : 0,,
+##          'no_escape'            : True,,
+##          'outfile'              : 'Human_mtDNA_polyA2_mod3_extended.bed',,
+##          'output_format'        : 'BED',,
+##          'sorted'               : False,,
+##          'tabix'                : False,,
+##          'warnlevel'            : 0,
+##        }
+Human_mtDNA_polyA2	3306	4292	mRNA00001	0	+	3306	4292	0,0,255	1	986,	0,	gene00001	na
+Human_mtDNA_polyA2	4499	5571	mRNA00002	0	+	4499	5571	0,0,255	1	1072,	0,	gene00002	na
+Human_mtDNA_polyA2	5963	7607	mRNA00003	0	+	5963	7607	0,0,255	1	1644,	0,	gene00003	na
+Human_mtDNA_polyA2	7675	8414	mRNA00004	0	+	7675	8414	0,0,255	1	739,	0,	gene00004	na
+Human_mtDNA_polyA2	8485	9357	mRNA00005	0	+	8485	9357	0,0,255	1	872,	0,	gene00005	na
+Human_mtDNA_polyA2	8646	9357	mRNA00006	0	+	8646	9357	0,0,255	1	711,	0,	gene00006	na
+Human_mtDNA_polyA2	9356	10170	mRNA00007	0	+	9356	10170	0,0,255	1	814,	0,	gene00007	na
+Human_mtDNA_polyA2	10238	10614	mRNA00008	0	+	10238	10614	0,0,255	1	376,	0,	gene00008	na
+Human_mtDNA_polyA2	10679	12377	mRNA00009	0	+	10679	12377	0,0,255	1	1698,	0,	gene00009	na
+Human_mtDNA_polyA2	10969	12377	mRNA00010	0	+	10969	12377	0,0,255	1	1408,	0,	gene00010	na
+Human_mtDNA_polyA2	12576	14913	mRNA00011	0	+	12576	14913	0,0,255	1	2337,	0,	gene00011	na
+Human_mtDNA_polyA2	12576	14913	mRNA00012	0	-	12576	14913	0,0,255	1	2337,	0,	gene00012	na
+Human_mtDNA_polyA2	14986	16157	mRNA00013	0	+	14986	16157	0,0,255	1	1171,	0,	gene00013	na
