@@ -139,5 +139,3 @@ After preparing N2a vectors, run `Rscript 02_analyze_vectors.R N2a`. For R-only 
 Results are written under `results/HEK/` or `results/N2a/`. The `analysis/` directory contains codon occupancy, nucleotide counts, candidate-stop summaries, coordinate/QC tables and PNG plots. Processing logs are saved in the corresponding `logs/` directory.
 
 Codon occupancy is calculated as the sum of three adjacent nucleotide counts divided by total counts in the selected sequence region, multiplied by 100. Confirm the normalization region and vector coordinates before interpreting results. Candidate-stop summaries and condition means are descriptive outputs.
-
-The Python wrapper passed 14 tests during package preparation. The sequencing tools, R analysis and manuscript results still require validation on the study inputs.
