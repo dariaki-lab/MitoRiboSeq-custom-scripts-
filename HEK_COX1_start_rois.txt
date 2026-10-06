@@ -1,2 +1,0 @@
-region_id	window_size	region	masked	alignment_offset	zero_point
-gene00003	250	Human_mtDNA_polyA2:5963-6163(+)	na	50	50
