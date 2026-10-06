@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/33101193/README.md)
+[README (1).md](https://github.com/user-attachments/files/33102291/README.1.md)
 # MitoRiboSeq custom scripts
 
 Custom scripts and processing notes for mitochondrial ribosome profiling in **HEK (human)** and **N2a (mouse)** cells, comparing WT, MTRF1 KO, MTRF1A KO and MTRF1/MTRF1A double KO samples.
@@ -56,6 +56,7 @@ Keep the supplied source files together in one directory. Input data can remain 
 | `preprocess_environment.yml`, `plastid_environment.yml` | Example Conda environments |
 | [WORKFLOW.md](WORKFLOW.md) | Additional instructions and scientific notes |
 | [original_workflows.zip](original_workflows.zip) | Historical notebooks and processing notes |
+| Word processing notes linked below | Optional detailed records of the source workflows |
 
 `HEK_unprocessed_settings.json` and `HEK_unprocessed_transcripts.tsv` support the optional unprocessed comparison. `summarize_processing_logs.py` summarizes trimming and alignment logs; the `check_*` files provide optional software checks.
 
@@ -139,3 +140,17 @@ After preparing N2a vectors, run `Rscript 02_analyze_vectors.R N2a`. For R-only 
 Results are written under `results/HEK/` or `results/N2a/`. The `analysis/` directory contains codon occupancy, nucleotide counts, candidate-stop summaries, coordinate/QC tables and PNG plots. Processing logs are saved in the corresponding `logs/` directory.
 
 Codon occupancy is calculated as the sum of three adjacent nucleotide counts divided by total counts in the selected sequence region, multiplied by 100. Confirm the normalization region and vector coordinates before interpreting results. Candidate-stop summaries and condition means are descriptive outputs.
+
+The Python wrapper passed 14 tests during package preparation. The sequencing tools, R analysis and manuscript results still require validation on the study inputs.
+
+## 8. Original processing notes
+
+The following Word files organize the supplied processing notes for individual upload. Each includes a workflow summary, sample-naming template and the detailed source record. Historical sample IDs, command flags and recorded outputs are retained; laptop-specific path roots are replaced with generic examples. Use these as supporting documentation alongside the runnable scripts.
+
+| Source document | Contents |
+| --- | --- |
+| [HEK_processing_workflow.docx](HEK_processing_workflow.docx) | Automated HEK processing and processed/unprocessed reference comparison |
+| [HEK_MTRF1_KO_processing_notes.docx](HEK_MTRF1_KO_processing_notes.docx) | Human MTRF1 KO and WT processing |
+| [HEK_MTRF1A_KO_processing_notes.docx](HEK_MTRF1A_KO_processing_notes.docx) | Human MTRF1A KO, MTRF1 KO and control processing; alternative filters and annotations |
+| [HEK_MTRF1_MTRF1A_dKO_processing_notes.docx](HEK_MTRF1_MTRF1A_dKO_processing_notes.docx) | Human double KO and WT processing |
+| [N2a_processing_workflow.docx](N2a_processing_workflow.docx) | N2a WT, both single KOs and double KO; reference and read-length comparisons |
