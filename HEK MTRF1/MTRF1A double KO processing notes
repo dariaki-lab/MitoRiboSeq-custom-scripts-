@@ -1,0 +1,223 @@
+HEK MTRF1/MTRF1A double KO processing notes
+1. How to use this document
+README.md explains the numbered Python/R workflow. This document records the original processing commands and alternative analyses, with headings for steps and historical samples.
+Step	Tool / output
+Trim adapters and filter lengths	Cutadapt → trimmed FASTQ
+Align to the selected reference	Bowtie2 → alignment files
+Filter, sort and index mapped reads	SAMtools → sorted, indexed BAM
+Review offsets and read phasing	plastid psite / phase_by_size
+Export counts and nucleotide vectors	plastid counts_in_region / get_count_vectors
+Analyze occupancy and make plots	02_analyze_vectors.R; see README.md
+
+Select an analysis branch and check its inputs, reference coordinates, length filters and offsets before reuse. Historical tool spelling, filenames and sample IDs are retained.
+2. Repository sample-naming template
+Condition	Replicate 1	Replicate 2	Replicate 3
+WT	WT1	WT2	WT3
+MTRF1 KO	MTRF1 KO1	MTRF1 KO2	MTRF1 KO3
+MTRF1A KO	MTRF1A KO1	MTRF1A KO2	MTRF1A KO3
+MTRF1/MTRF1A dKO	MTRF1/MTRF1A dKO1	MTRF1/MTRF1A dKO2	MTRF1/MTRF1A dKO3
+
+Cell line: HEK. Prefix file IDs with HEK_ and use underscores, for example HEK_WT1 and HEK_MTRF1_MTRF1A_dKO3.
+These are template slots: map them to actual libraries in sample_info.csv. Source examples may have fewer libraries or additional controls. Historical RF1/RF1a labels refer to MTRF1/MTRF1A; clone and batch IDs are retained.
+3. Analysis branches and path examples
+Source branch	Reference / focus
+Processed transcripts (+polyA / UTR)	Human_mtDNA_polyA2 with matching annotations and per-library offsets.
+Alternative plastid filter section	Additional source commands following the initial workflow.
+
+The final subsection heading mentions 25–40 nt, but the commands in that subsection use 25–45 nt. Confirm the intended range with the study records before reuse; both the heading and the command flags are retained.
+Substitute your locations for /path/to/project and /path/to/conda. Only laptop path roots were replaced; relative subdirectories, filenames, flags and outputs are retained.
+Retain the original developer credit and follow README.md/CITATION.cff for citation. Source authorship and licensing are unchanged.
+4. Detailed source workflow
+Data processing for mtRF1/mtRF1a dKO ribose (based on mtRF1a processing)
+Cutadapt:
+Activate environment: conda activate cutadaptenv
+Go to folder: cd /path/to/project/RF1a_data
+Trim and filter reads:
+cutadapt -a TGGAATTCTCGGGTGCCAAGG -o /path/to/project/RF1_RF1a_dKO/WT_cut.fastq.gz /path/to/project/RF1_RF1a_dKO/RPI1_S1_R1_001.fastq.gz --max-n 0.2 -m 25 -M 45 --cores 4
+cutadapt -a TGGAATTCTCGGGTGCCAAGG -o /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO1_cut.fastq.gz /path/to/project/RF1_RF1a_dKO/RPI2_S2_R1_001.fastq.gz --max-n 0.2 -m 25 -M 45 --cores 4
+cutadapt -a TGGAATTCTCGGGTGCCAAGG -o /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO2_cut.fastq.gz /path/to/project/RF1_RF1a_dKO/RPI3_S3_R1_001.fastq.gz --max-n 0.2 -m 25 -M 45 --cores 4
+Alignment polyA + UTR
+Bowtie 2 (alignment)
+Activate environment: conda activate bowtie2
+Reference sequence: Human_mtDNA_polyA2.fasta.fai (contains polyA tails)
+Annotation file: Human_mtDNA_polyA2_mod.gff (contains polyA + UTR)
+First download ref sequence and index:
+Bowtie2-build Human_mtDNA_polyA2.fasta Human_mtDNA_polyA2
+Bowtie build file: Human_mtDNA_polyA2
+WT:
+Bowtie2 --local -x /path/to/project/refseq/Human_mtDNA_polyA2 -U /path/to/project/RF1_RF1a_dKO/WT_cut.fastq.gz -S /path/to/project/RF1_RF1a_dKO/WT_cut_aligned.sam 
+25983085 (100.00%) were unpaired; of these:
+    23088371 (88.86%) aligned 0 times
+    2894709 (11.14%) aligned exactly 1 time
+    5 (0.00%) aligned >1 times
+Samtools view -S -b /path/to/project/RF1_RF1a_dKO/WT_cut_aligned.sam > /path/to/project/RF1_RF1a_dKO/WT_cut_aligned.bam
+samtools view -b -F 4 /path/to/project/RF1_RF1a_dKO/WT_cut_aligned.bam > /path/to/project/RF1_RF1a_dKO/WT_cut_aligned_mapped.bam
+samtools sort /path/to/project/RF1_RF1a_dKO/WT_cut_aligned_mapped.bam -o /path/to/project/RF1_RF1a_dKO/WT_cut_aligned_mapped.sorted.bam
+samtools index /path/to/project/RF1_RF1a_dKO/WT_cut_aligned_mapped.sorted.bam
+KO1:
+Bowtie2 --local -x /path/to/project/refseq/Human_mtDNA_polyA2 -U /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO1_cut.fastq.gz -S /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO1_cut_aligned.sam 
+55237995 (100.00%) were unpaired; of these:
+    48146689 (87.16%) aligned 0 times
+    7091300 (12.84%) aligned exactly 1 time
+    6 (0.00%) aligned >1 times
+Samtools view -S -b /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO1_cut_aligned.sam > /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO1_cut_aligned.bam
+samtools view -b -F 4 /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO1_cut_aligned.bam > /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO1_cut_aligned_mapped.bam
+samtools sort /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO1_cut_aligned_mapped.bam -o /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO1_cut_aligned_mapped.sorted.bam
+samtools index /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO1_cut_aligned_mapped.sorted.bam
+KO2:
+Bowtie2 --local -x /path/to/project/refseq/Human_mtDNA_polyA2 -U /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO2_cut.fastq.gz -S /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO2_cut_aligned.sam 
+60406305 (100.00%) were unpaired; of these:
+    55400443 (91.71%) aligned 0 times
+    5005858 (8.29%) aligned exactly 1 time
+    4 (0.00%) aligned >1 times
+Samtools view -S -b /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO2_cut_aligned.sam > /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO2_cut_aligned.bam
+samtools view -b -F 4 /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO2_cut_aligned.bam > /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO2_cut_aligned_mapped.bam
+samtools sort /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO2_cut_aligned_mapped.bam -o /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO2_cut_aligned_mapped.sorted.bam
+samtools index /path/to/project/RF1_RF1a_dKO/RF1_RF1a_KO2_cut_aligned_mapped.sorted.bam
+Plastid 
+Activate plastid:
+conda activate plastid
+WT
+P-site analysis:
+psite /path/to/project/Plastid/RF1a/PolyA/mtDNA_stop_COX1_rois.txt /path/to/project/RF1_RF1a_dKO/polyA/WT_p-site_stop \
+                             --min_length 25 \
+                             --max_length 45 \
+                             --count_files /path/to/project/RF1_RF1a_dKO/polyA/WT_cut_aligned_mapped.sorted.bam
+Phasing
+phase_by_size /path/to/project/Plastid/RF1a/PolyA/mtDNA_cds_start_rois.txt /path/to/project/RF1_RF1a_dKO/polyA/WT_readphasing \
+                --count_files /path/to/project/RF1_RF1a_dKO/polyA/WT_cut_aligned_mapped.sorted.bam \
+                --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/WT_p-site_stop_p_offsets.txt \
+                --codon_buffer 5 \
+                --min_length 25 --max_length 45
+adjust offset until phasing looks good
+Count reads
+counts_in_region /path/to/project/RF1_RF1a_dKO/polyA/Counts_WT2.txt --count_files /path/to/project/RF1_RF1a_dKO/polyA/WT_cut_aligned_mapped.sorted.bam \
+                                   --annotation_files /path/to/project/Plastid/RF1a/PolyA/Human_mtDNA_polyA2_mod2.gtf2 \
+                                   --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/WT_p-site_stop_p_offsets.txt \
+                --min_length 30 --max_length 45
+Count vectors
+Use different annotation file for analysis (including UTRs)
+Human_mtDNA_polyA2_mod3.gff
+get_count_vectors --annotation_files /path/to/project/Plastid/RF1a/PolyA/Human_mtDNA_polyA2_mod3_extended.bed\
+                    --annotation_format BED \
+                    --count_files /path/to/project/RF1_RF1a_dKO/polyA/WT_cut_aligned_mapped.sorted.bam \
+                   --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/WT_p-site_stop_p_offsets.txt \
+                --min_length 30 --max_length 45 \
+/path/to/project/RF1_RF1a_dKO/polyA/folder_of_arrays_WT
+KO1
+P-site analysis:
+psite /path/to/project/Plastid/RF1a/PolyA/mtDNA_stop_COX1_rois.txt /path/to/project/RF1_RF1a_dKO/polyA/KO1_p-site_stop \
+                             --min_length 25 \
+                             --max_length 45 \
+                             --count_files /path/to/project/RF1_RF1a_dKO/polyA/RF1_RF1a_KO1_cut_aligned_mapped.sorted.bam
+Phasing
+phase_by_size /path/to/project/Plastid/RF1a/PolyA/mtDNA_cds_start_rois.txt /path/to/project/RF1_RF1a_dKO/polyA/KO1_readphasing \
+                --count_files /path/to/project/RF1_RF1a_dKO/polyA/RF1_RF1a_KO1_cut_aligned_mapped.sorted.bam\
+                --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/KO1_p-site_stop_p_offsets.txt \
+                --codon_buffer 5 \
+                --min_length 25 --max_length 45
+adjust offset until phasing looks good
+Count reads
+counts_in_region /path/to/project/RF1_RF1a_dKO/polyA/Counts_KO1.txt --count_files /path/to/project/RF1_RF1a_dKO/polyA/RF1_RF1a_KO1_cut_aligned_mapped.sorted.bam\
+                                   --annotation_files /path/to/project/Plastid/RF1a/PolyA/Human_mtDNA_polyA2_mod2.gtf2 \
+                                   --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/KO1_p-site_stop_p_offsets.txt \
+                --min_length 30 --max_length 45
+Count vectors
+Use different annotation file for analysis (including UTRs)
+Human_mtDNA_polyA2_mod3.gff
+get_count_vectors --annotation_files /path/to/project/Plastid/RF1a/PolyA/Human_mtDNA_polyA2_mod3_extended.bed\
+                    --annotation_format BED \
+                    --count_files /path/to/project/RF1_RF1a_dKO/polyA/RF1_RF1a_KO1_cut_aligned_mapped.sorted.bam\
+                   --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/KO1_p-site_stop_p_offsets.txt \
+                --min_length 30 --max_length 45 \
+/path/to/project/RF1_RF1a_dKO/polyA/folder_of_arrays_KO1
+KO2
+P-site analysis:
+psite /path/to/project/Plastid/RF1a/PolyA/mtDNA_stop_COX1_rois.txt /path/to/project/RF1_RF1a_dKO/polyA/KO2_p-site_stop \
+                             --min_length 25 \
+                             --max_length 45 \
+                             --count_files /path/to/project/RF1_RF1a_dKO/polyA/RF1_RF1a_KO2_cut_aligned_mapped.sorted.bam
+Phasing
+phase_by_size /path/to/project/Plastid/RF1a/PolyA/mtDNA_cds_start_rois.txt /path/to/project/RF1_RF1a_dKO/polyA/KO2_readphasing \
+                --count_files /path/to/project/RF1_RF1a_dKO/polyA/RF1_RF1a_KO2_cut_aligned_mapped.sorted.bam\
+                --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/KO2_p-site_stop_p_offsets.txt \
+                --codon_buffer 5 \
+                --min_length 25 --max_length 45
+adjust offset until phasing looks good
+Count reads
+counts_in_region /path/to/project/RF1_RF1a_dKO/polyA/Counts_KO2.txt --count_files /path/to/project/RF1_RF1a_dKO/polyA/RF1_RF1a_KO2_cut_aligned_mapped.sorted.bam\
+                                   --annotation_files /path/to/project/Plastid/RF1a/PolyA/Human_mtDNA_polyA2_mod2.gtf2 \
+                                   --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/KO2_p-site_stop_p_offsets.txt \
+                --min_length 30 --max_length 45
+Count vectors
+Use different annotation file for analysis (including UTRs)
+Human_mtDNA_polyA2_mod3.gff
+get_count_vectors --annotation_files /path/to/project/Plastid/RF1a/PolyA/Human_mtDNA_polyA2_mod3_extended.bed\
+                    --annotation_format BED \
+                    --count_files /path/to/project/RF1_RF1a_dKO/polyA/RF1_RF1a_KO2_cut_aligned_mapped.sorted.bam\
+                   --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/KO2_p-site_stop_p_offsets.txt \
+                --min_length 30 --max_length 45 \
+/path/to/project/RF1_RF1a_dKO/polyA/folder_of_arrays_KO2
+Plastid less stringent filter (25-40)
+Activate plastid:
+conda activate plastid
+WT
+Count reads
+counts_in_region /path/to/project/RF1_RF1a_dKO/polyA2/Counts_WT2.txt --count_files /path/to/project/RF1_RF1a_dKO/polyA/WT_cut_aligned_mapped.sorted.bam \
+                                   --annotation_files /path/to/project/Plastid/RF1a/PolyA/Human_mtDNA_polyA2_mod2.gtf2 \
+                                   --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/WT_p-site_stop_p_offsets.txt \
+                --min_length 25 --max_length 45
+Count vectors
+Use different annotation file for analysis (including UTRs)
+Human_mtDNA_polyA2_mod3.gff
+get_count_vectors --annotation_files /path/to/project/Plastid/RF1a/PolyA/Human_mtDNA_polyA2_mod3_extended.bed\
+                    --annotation_format BED \
+                    --count_files /path/to/project/RF1_RF1a_dKO/polyA/WT_cut_aligned_mapped.sorted.bam \
+                   --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/WT_p-site_stop_p_offsets.txt \
+                --min_length 25 --max_length 45 \
+/path/to/project/RF1_RF1a_dKO/polyA2/folder_of_arrays_WT
+KO1:
+Count reads
+counts_in_region /path/to/project/RF1_RF1a_dKO/polyA2/Counts_KO1.txt --count_files /path/to/project/RF1_RF1a_dKO/polyA/RF1_RF1a_KO1_cut_aligned_mapped.sorted.bam\
+                                   --annotation_files /path/to/project/Plastid/RF1a/PolyA/Human_mtDNA_polyA2_mod2.gtf2 \
+                                   --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/KO1_p-site_stop_p_offsets.txt \
+                --min_length 25 --max_length 45
+Count vectors
+Use different annotation file for analysis (including UTRs)
+Human_mtDNA_polyA2_mod3.gff
+get_count_vectors --annotation_files /path/to/project/Plastid/RF1a/PolyA/Human_mtDNA_polyA2_mod3_extended.bed\
+                    --annotation_format BED \
+                    --count_files /path/to/project/RF1_RF1a_dKO/polyA/RF1_RF1a_KO1_cut_aligned_mapped.sorted.bam\
+                   --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/KO1_p-site_stop_p_offsets.txt \
+                --min_length 25 --max_length 45 \
+/path/to/project/RF1_RF1a_dKO/polyA2/folder_of_arrays_KO1
+KO2
+Count reads
+counts_in_region /path/to/project/RF1_RF1a_dKO/polyA2/Counts_KO2.txt --count_files /path/to/project/RF1_RF1a_dKO/polyA/RF1_RF1a_KO2_cut_aligned_mapped.sorted.bam\
+                                   --annotation_files /path/to/project/Plastid/RF1a/PolyA/Human_mtDNA_polyA2_mod2.gtf2 \
+                                   --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/KO2_p-site_stop_p_offsets.txt \
+                --min_length 25 --max_length 45
+Count vectors
+Use different annotation file for analysis (including UTRs)
+Human_mtDNA_polyA2_mod3.gff
+get_count_vectors --annotation_files /path/to/project/Plastid/RF1a/PolyA/Human_mtDNA_polyA2_mod3_extended.bed\
+                    --annotation_format BED \
+                    --count_files /path/to/project/RF1_RF1a_dKO/polyA/RF1_RF1a_KO2_cut_aligned_mapped.sorted.bam\
+                   --fiveprime_variable \
+              --offset /path/to/project/RF1_RF1a_dKO/polyA/KO2_p-site_stop_p_offsets.txt \
+                --min_length 25 --max_length 45 \
+/path/to/project/RF1_RF1a_dKO/polyA2/folder_of_arrays_KO2
