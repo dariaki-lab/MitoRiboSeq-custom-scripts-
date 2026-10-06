@@ -1,0 +1,52 @@
+##gff-version 3
+Mouse_polyA	unknown	gene	2751	3764	.	+	0	ID=gene00001;Name=ND1; color=#AAAAAA
+Mouse_polyA	unknown	mRNA	2751	3764	.	+	0	ID=mRNA00001;Parent=gene00001;Name=ND1; color=#0000FF
+Mouse_polyA	unknown	CDS	2751	3764	.	+	0	ID=cds00001;Parent=mRNA00001;Name=ND1; color=#0000FF
+
+Mouse_polyA	unknown	gene	3974	5068	.	+	0	ID=gene00002;Name=ND2; color=#AAAAAA
+Mouse_polyA	unknown	mRNA	3974	5068	.	+	0	ID=mRNA00002;Parent=gene00002;Name=ND2; color=#0000FF
+Mouse_polyA	unknown	CDS	3974	5068	.	+	0	ID=cds00002;Parent=mRNA00002;Name=ND2; color=#0000FF
+
+Mouse_polyA	unknown	gene	5448	7121	.	+	0	ID=gene00003;Name=COX1; color=#AAAAAA
+Mouse_polyA	unknown	mRNA	5448	7121	.	+	0	ID=mRNA00003;Parent=gene00003;Name=COX1; color=#0000FF
+Mouse_polyA	unknown	CDS	5448	7121	.	+	0	ID=cds00003;Parent=mRNA00003;Name=COX1; color=#0000FF
+
+Mouse_polyA	unknown	gene	7193	7939	.	+	0	ID=gene00004;Name=COX2; color=#AAAAAA
+Mouse_polyA	unknown	mRNA	7193	7939	.	+	0	ID=mRNA00004;Parent=gene00004;Name=COX2; color=#0000FF
+Mouse_polyA	unknown	CDS	7193	7939	.	+	0	ID=cds00004;Parent=mRNA00004;Name=COX2; color=#0000FF
+
+Mouse_polyA	unknown	gene	8006	8905	.	+	0	ID=gene00005;Name=ATP8; color=#AAAAAA
+Mouse_polyA	unknown	mRNA	8006	8905	.	+	0	ID=mRNA00005;Parent=gene00005;Name=ATP8; color=#0000FF
+Mouse_polyA	unknown	CDS	8006	8905	.	+	0	ID=cds00005;Parent=mRNA00005;Name=ATP8; color=#0000FF
+
+Mouse_polyA	unknown	gene	8167	8904	.	+	0	ID=gene00006;Name=ATP6; color=#AAAAAA
+Mouse_polyA	unknown	mRNA	8167	8904	.	+	0	ID=mRNA00006;Parent=gene00006;Name=ATP6; color=#0000FF
+Mouse_polyA	unknown	CDS	8167	8904	.	+	0	ID=cds00006;Parent=mRNA00006;Name=ATP6; color=#0000FF
+
+Mouse_polyA	unknown	gene	8907	9749	.	+	0	ID=gene00007;Name=COX3; color=#AAAAAA
+Mouse_polyA	unknown	mRNA	8907	9749	.	+	0	ID=mRNA00007;Parent=gene00007;Name=COX3; color=#0000FF
+Mouse_polyA	unknown	CDS	8907	9749	.	+	0	ID=cds00007;Parent=mRNA00007;Name=COX3; color=#0000FF
+
+Mouse_polyA	unknown	gene	9819	10226	.	+	0	ID=gene00008;Name=ND3; color=#AAAAAA
+Mouse_polyA	unknown	mRNA	9819	10226	.	+	0	ID=mRNA00008;Parent=gene00008;Name=ND3; color=#0000FF
+Mouse_polyA	unknown	CDS	9819	10226	.	+	0	ID=cds00008;Parent=mRNA00008;Name=ND3; color=#0000FF
+
+Mouse_polyA	unknown	gene	10297	12024	.	+	0	ID=gene00009;Name=ND4L; color=#AAAAAA
+Mouse_polyA	unknown	mRNA	10297	12024	.	+	0	ID=mRNA00009;Parent=gene00009;Name=ND4L; color=#0000FF
+Mouse_polyA	unknown	CDS	10297	12024	.	+	0	ID=cds00009;Parent=mRNA00009;Name=ND4L; color=#0000FF
+
+Mouse_polyA	unknown	gene	10587	12023	.	+	0	ID=gene00010;Name=ND4; color=#AAAAAA
+Mouse_polyA	unknown	mRNA	10587	12023	.	+	0	ID=mRNA00010;Parent=gene00010;Name=ND4; color=#0000FF
+Mouse_polyA	unknown	CDS	10587	12023	.	+	0	ID=cds00010;Parent=mRNA00010;Name=ND4; color=#0000FF
+
+Mouse_polyA	unknown	gene	12222	14549	.	+	0	ID=gene00011;Name=ND5; color=#AAAAAA
+Mouse_polyA	unknown	mRNA	12222	14549	.	+	0	ID=mRNA00011;Parent=gene00011;Name=ND5; color=#0000FF
+Mouse_polyA	unknown	CDS	12222	14549	.	+	0	ID=cds00011;Parent=mRNA00011;Name=ND5; color=#0000FF
+
+Mouse_polyA	unknown	gene	12223	14550	.	-	0	ID=gene00012;Name=ND6; color=#AAAAAA
+Mouse_polyA	unknown	mRNA	12223	14550	.	-	0	ID=mRNA00012;Parent=gene00012;Name=ND6; color=#0000FF
+Mouse_polyA	unknown	CDS	12223	14550	.	-	0	ID=cds00012;Parent=mRNA00012;Name=ND6; color=#0000FF
+
+Mouse_polyA	unknown	gene	14625	15827	.	+	0	ID=gene00013;Name=CYTB; color=#AAAAAA
+Mouse_polyA	unknown	mRNA	14625	15827	.	+	0	ID=mRNA00013;Parent=gene00013;Name=CYTB; color=#0000FF
+Mouse_polyA	unknown	CDS	14625	15827	.	+	0	ID=cds00013;Parent=mRNA00013;Name=CYTB; color=#0000FF
