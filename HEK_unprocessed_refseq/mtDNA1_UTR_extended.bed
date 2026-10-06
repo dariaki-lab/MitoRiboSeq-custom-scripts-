@@ -1,0 +1,33 @@
+## date = '2026-08-26 22:47:50.016759'
+## execstr = '/Users/annkrg/[/Applications/miniconda3]/envs/plastid/bin/reformat_transcripts --annotation_files refseq/mtDNA1_UTR.gff3 --annotation_format GFF3 --output_format BED --extra_columns gene_id Notes -- refseq/mtDNA1_UTR_extended.bed'
+## args = {  
+##          'add_three'            : False,,
+##          'annotation_files'     : ['refseq/mtDNA1_UTR.gff3'],,
+##          'annotation_format'    : 'GFF3',,
+##          'bed_extra_columns'    : 0,,
+##          'empty_value'          : 'na',,
+##          'extra_columns'        : ['gene_id', 'Notes'],,
+##          'gff_cds_types'        : set(['CDS_predicted', 'CDS_indpendently_known', 'CDS_fragment', 'CDS']),,
+##          'gff_exon_types'       : set(['noncoding_exon', 'exon_of_single_exon_gene', 'three_prime_coding_exonfive_prime_noncoding_exon', 'three_prime_noncoding_exon', 'interior_exon', 'interior_coding_exon', 'coding_exon', 'pseudogenic_exon', 'exon', 'five_prime_coding_exon']),,
+##          'gff_transcript_types' : set(['C_D_box_snoRNA', 'mRNA_recoded_by_translational_bypass', 'telomeric_transcript', 'DsrA_RNA', 'large_subunit_rRNA', 'ARRET', 'scRNA', 'polycistronic_mRNA', 'asparaginyl_tRNA', 'non_functional_homolog_of_pseudogenic_transcript', 'rRNA_23S', 'mRNA_with_minus_2_frameshift', 'antisense_RNA', 'rRNA_18S', 'Y_RNA', 'monocistronic_mRNA', 'antisense_lncRNA', 'small_subunit_rRNA', 'moR', 'CsrB_RsmB_RNA', 'U6atac_snRNA', 'snoRNA', 'RNase_P_RNA', 'RNase_MRP_RNA', 'rRNA', 'rRNA_25S', 'IoR', 'pseudouridylation_guide_snoRNA', 'anti_ARRET', 'rasiRNA', 'telomerase_RNA', 'U4_snRNA', 'alanyl_tRNA', 'mRNA_with_plus_2_frameshift', 'lysyl_tRNA', 'rRNA_cleavage_RNA', 'snRNA', 'U12_snRNA', 'mRNA', 'enzymatic_RNA', 'threonyl_tRNA', 'GcvB_RNA', 'U6_snRNA', 'tRNA', 'piRNA', 'enhancerRNA', 'aspartyl_tRNA', 'class_I_RNA', 'U2_snRNA', 'ARIA', 'cysteinyl_tRNA', 'mRNA_recoded_by_codon_redefinition', 'lincRNA', 'guide_RNA', 'vault_RNA', 'isoleucyl_tRNA', 'intronic_lncRNA', 'methylation_guide_snoRNA', 'TERRA', 'edited_transcript', 'priRNA', 'transcript', 'methionyl_tRNA', 'glutamyl_tRNA', 'polyadenylated_mRNA', 'phenylalanyl_tRNA', 'valyl_tRNA', 'prolyl_tRNA', 'miRNA', 'RNA_6S', 'mRNA_with_frameshift', 'shRNA', 'H_ACA_box_snoRNA', 'histidyl_tRNA', 'dicistronic_mRNA', 'glycyl_tRNA', 'mature_transcript', 'rRNA_21S', 'edited_mRNA', 'pyrrollysyl_tRNA', 'class_II_RNA', 'mRNA_with_plus_1_frameshift', 'rRNA_5S', 'U1_snRNA', 'ncRNA', 'siRNA', 'tmRNA', 'pseudogenic_transcript', 'spot42_RNA', 'U3_snoRNA', 'U5_snRNA', 'tasiRNA', 'arginyl_tRNA', 'lnc_RNA', 'MicF_RNA', 'RprA_RNA', 'U4atac_snRNA', 'leucyl_tRNA', 'trans_spliced_mRNA', 'small_regulatory_ncRNA', 'tyrosyl_tRNA', 'glutaminyl_tRNA', 'selenocysteinyl_tRNA', 'U11_snRNA', 'RRE_RNA', 'U14_snoRNA', 'OxyS_RNA', 'SRP_RNA', 'tryptophanyl_tRNA', 'rRNA_16S', 'edited_transcript_by_A_to_I_substitution', 'mRNA_with_minus_1_frameshift', 'rRNA_28S', 'recoded_mRNA', 'seryl_tRNA', 'rRNA_5_8S']),,
+##          'maxmem'               : 0,,
+##          'no_escape'            : True,,
+##          'outfile'              : 'refseq/mtDNA1_UTR_extended.bed',,
+##          'output_format'        : 'BED',,
+##          'sorted'               : False,,
+##          'tabix'                : False,,
+##          'warnlevel'            : 0,
+##        }
+NC_012920.1	3306	4322	mRNA00001	0	+	3306	4322	0,0,255	1	1016,	0,	gene00001	na
+NC_012920.1	4469	5571	mRNA00002	0	+	4469	5571	0,0,255	1	1102,	0,	gene00002	na
+NC_012920.1	5903	7505	mRNA00003	0	+	5903	7505	0,0,255	1	1602,	0,	gene00003	na
+NC_012920.1	7585	8329	mRNA00004	0	+	7585	8329	0,0,255	1	744,	0,	gene00004	na
+NC_012920.1	8365	8632	mRNA00005	0	+	8365	8632	0,0,255	1	267,	0,	gene00005	na
+NC_012920.1	8526	9267	mRNA00006	0	+	8526	9267	0,0,255	1	741,	0,	gene00006	na
+NC_012920.1	9206	10050	mRNA00007	0	+	9206	10050	0,0,255	1	844,	0,	gene00007	na
+NC_012920.1	10058	10464	mRNA00008	0	+	10058	10464	0,0,255	1	406,	0,	gene00008	na
+NC_012920.1	10469	10826	mRNA00009	0	+	10469	10826	0,0,255	1	357,	0,	gene00009	na
+NC_012920.1	10759	12197	mRNA00010	0	+	10759	12197	0,0,255	1	1438,	0,	gene00010	na
+NC_012920.1	12336	14208	mRNA00011	0	+	12336	14208	0,0,255	1	1872,	0,	gene00011	na
+NC_012920.1	14088	14673	mRNA00012	0	-	14088	14673	0,0,255	1	585,	0,	gene00012	na
+NC_012920.1	14747	15948	mRNA00013	0	+	14747	15948	0,0,255	1	1201,	0,	gene00013	na

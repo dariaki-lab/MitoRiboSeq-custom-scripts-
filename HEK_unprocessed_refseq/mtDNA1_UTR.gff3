@@ -1,0 +1,52 @@
+##gff-version 3
+NC_012920.1	unknown	gene	3307	4322	.	+	0	ID=gene00001;Name=ND1; color=#AAAAAA
+NC_012920.1	unknown	mRNA	3307	4322	.	+	0	ID=mRNA00001;Parent=gene00001;Name=ND1; color=#0000FF
+NC_012920.1	unknown	CDS	3307	4322	.	+	0	ID=cds00001;Parent=mRNA00001;Name=ND1; color=#0000FF
+
+NC_012920.1	unknown	gene	4470	5571	.	+	0	ID=gene00002;Name=ND2; color=#AAAAAA
+NC_012920.1	unknown	mRNA	4470	5571	.	+	0	ID=mRNA00002;Parent=gene00002;Name=ND2; color=#0000FF
+NC_012920.1	unknown	CDS	4470	5571	.	+	0	ID=cds00002;Parent=mRNA00002;Name=ND2; color=#0000FF
+
+NC_012920.1	unknown	gene	5904	7505	.	+	0	ID=gene00003;Name=COX1; color=#AAAAAA
+NC_012920.1	unknown	mRNA	5904	7505	.	+	0	ID=mRNA00003;Parent=gene00003;Name=COX1; color=#0000FF
+NC_012920.1	unknown	CDS	5904	7505	.	+	0	ID=cds00003;Parent=mRNA00003;Name=COX1; color=#0000FF
+
+NC_012920.1	unknown	gene	7586	8329	.	+	0	ID=gene00004;Name=COX2; color=#AAAAAA
+NC_012920.1	unknown	mRNA	7586	8329	.	+	0	ID=mRNA00004;Parent=gene00004;Name=COX2; color=#0000FF
+NC_012920.1	unknown	CDS	7586	8329	.	+	0	ID=cds00004;Parent=mRNA00004;Name=COX2; color=#0000FF
+
+NC_012920.1	unknown	gene	8366	8632	.	+	0	ID=gene00005;Name=ATP8; color=#AAAAAA
+NC_012920.1	unknown	mRNA	8366	8632	.	+	0	ID=mRNA00005;Parent=gene00005;Name=ATP8; color=#0000FF
+NC_012920.1	unknown	CDS	8366	8632	.	+	0	ID=cds00005;Parent=mRNA00005;Name=ATP8; color=#0000FF
+
+NC_012920.1	unknown	gene	8527	9267	.	+	0	ID=gene00006;Name=ATP6; color=#AAAAAA
+NC_012920.1	unknown	mRNA	8527	9267	.	+	0	ID=mRNA00006;Parent=gene00006;Name=ATP6; color=#0000FF
+NC_012920.1	unknown	CDS	8527	9267	.	+	0	ID=cds00006;Parent=mRNA00006;Name=ATP6; color=#0000FF
+
+NC_012920.1	unknown	gene	9207	10050	.	+	0	ID=gene00007;Name=COX3; color=#AAAAAA
+NC_012920.1	unknown	mRNA	9207	10050	.	+	0	ID=mRNA00007;Parent=gene00007;Name=COX3; color=#0000FF
+NC_012920.1	unknown	CDS	9207	10050	.	+	0	ID=cds00007;Parent=mRNA00007;Name=COX3; color=#0000FF
+
+NC_012920.1	unknown	gene	10059	10464	.	+	0	ID=gene00008;Name=ND3; color=#AAAAAA
+NC_012920.1	unknown	mRNA	10059	10464	.	+	0	ID=mRNA00008;Parent=gene00008;Name=ND3; color=#0000FF
+NC_012920.1	unknown	CDS	10059	10464	.	+	0	ID=cds00008;Parent=mRNA00008;Name=ND3; color=#0000FF
+
+NC_012920.1	unknown	gene	10470	10826	.	+	0	ID=gene00009;Name=ND4L; color=#AAAAAA
+NC_012920.1	unknown	mRNA	10470	10826	.	+	0	ID=mRNA00009;Parent=gene00009;Name=ND4L; color=#0000FF
+NC_012920.1	unknown	CDS	10470	10826	.	+	0	ID=cds00009;Parent=mRNA00009;Name=ND4L; color=#0000FF
+
+NC_012920.1	unknown	gene	10760	12197	.	+	0	ID=gene00010;Name=ND4; color=#AAAAAA
+NC_012920.1	unknown	mRNA	10760	12197	.	+	0	ID=mRNA00010;Parent=gene00010;Name=ND4; color=#0000FF
+NC_012920.1	unknown	CDS	10760	12197	.	+	0	ID=cds00010;Parent=mRNA00010;Name=ND4; color=#0000FF
+
+NC_012920.1	unknown	gene	12337	14208	.	+	0	ID=gene00011;Name=ND5; color=#AAAAAA
+NC_012920.1	unknown	mRNA	12337	14208	.	+	0	ID=mRNA00011;Parent=gene00011;Name=ND5; color=#0000FF
+NC_012920.1	unknown	CDS	12337	14208	.	+	0	ID=cds00011;Parent=mRNA00011;Name=ND5; color=#0000FF
+
+NC_012920.1	unknown	gene	14089	14673	.	-	0	ID=gene00012;Name=ND6; color=#AAAAAA
+NC_012920.1	unknown	mRNA	14089	14673	.	-	0	ID=mRNA00012;Parent=gene00012;Name=ND6; color=#0000FF
+NC_012920.1	unknown	CDS	14089	14673	.	-	0	ID=cds00012;Parent=mRNA00012;Name=ND6; color=#0000FF
+
+NC_012920.1	unknown	gene	14748	15948	.	+	0	ID=gene00013;Name=CYTB; color=#AAAAAA
+NC_012920.1	unknown	mRNA	14748	15948	.	+	0	ID=mRNA00013;Parent=gene00013;Name=CYTB; color=#0000FF
+NC_012920.1	unknown	CDS	14748	15948	.	+	0	ID=cds00013;Parent=mRNA00013;Name=CYTB; color=#0000FF

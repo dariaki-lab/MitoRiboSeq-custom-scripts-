@@ -1,0 +1,72 @@
+## date = '2022-07-18 16:49:08.615688'
+## execstr = '/Users/annkrg/[/Applications/miniconda3]/envs/plastid/bin/reformat_transcripts --annotation_files mtDNA1.gff3 --annotation_format GFF3 --output_format GTF2 mtDNA1.gtf2'
+## args = {  
+##          'add_three'            : False,,
+##          'annotation_files'     : ['mtDNA1.gff3'],,
+##          'annotation_format'    : 'GFF3',,
+##          'bed_extra_columns'    : 0,,
+##          'empty_value'          : 'na',,
+##          'extra_columns'        : [],,
+##          'gff_cds_types'        : set(['CDS_predicted', 'CDS_indpendently_known', 'CDS_fragment', 'CDS']),,
+##          'gff_exon_types'       : set(['noncoding_exon', 'exon_of_single_exon_gene', 'three_prime_coding_exonfive_prime_noncoding_exon', 'three_prime_noncoding_exon', 'interior_exon', 'interior_coding_exon', 'coding_exon', 'pseudogenic_exon', 'exon', 'five_prime_coding_exon']),,
+##          'gff_transcript_types' : set(['C_D_box_snoRNA', 'mRNA_recoded_by_translational_bypass', 'telomeric_transcript', 'DsrA_RNA', 'large_subunit_rRNA', 'ARRET', 'scRNA', 'polycistronic_mRNA', 'asparaginyl_tRNA', 'non_functional_homolog_of_pseudogenic_transcript', 'rRNA_23S', 'mRNA_with_minus_2_frameshift', 'antisense_RNA', 'rRNA_18S', 'Y_RNA', 'monocistronic_mRNA', 'antisense_lncRNA', 'small_subunit_rRNA', 'moR', 'CsrB_RsmB_RNA', 'U6atac_snRNA', 'snoRNA', 'RNase_P_RNA', 'RNase_MRP_RNA', 'rRNA', 'rRNA_25S', 'IoR', 'pseudouridylation_guide_snoRNA', 'anti_ARRET', 'rasiRNA', 'telomerase_RNA', 'U4_snRNA', 'alanyl_tRNA', 'mRNA_with_plus_2_frameshift', 'lysyl_tRNA', 'rRNA_cleavage_RNA', 'snRNA', 'U12_snRNA', 'mRNA', 'enzymatic_RNA', 'threonyl_tRNA', 'GcvB_RNA', 'U6_snRNA', 'tRNA', 'piRNA', 'enhancerRNA', 'aspartyl_tRNA', 'class_I_RNA', 'U2_snRNA', 'ARIA', 'cysteinyl_tRNA', 'mRNA_recoded_by_codon_redefinition', 'lincRNA', 'guide_RNA', 'vault_RNA', 'isoleucyl_tRNA', 'intronic_lncRNA', 'methylation_guide_snoRNA', 'TERRA', 'edited_transcript', 'priRNA', 'transcript', 'methionyl_tRNA', 'glutamyl_tRNA', 'polyadenylated_mRNA', 'phenylalanyl_tRNA', 'valyl_tRNA', 'prolyl_tRNA', 'miRNA', 'RNA_6S', 'mRNA_with_frameshift', 'shRNA', 'H_ACA_box_snoRNA', 'histidyl_tRNA', 'dicistronic_mRNA', 'glycyl_tRNA', 'mature_transcript', 'rRNA_21S', 'edited_mRNA', 'pyrrollysyl_tRNA', 'class_II_RNA', 'mRNA_with_plus_1_frameshift', 'rRNA_5S', 'U1_snRNA', 'ncRNA', 'siRNA', 'tmRNA', 'pseudogenic_transcript', 'spot42_RNA', 'U3_snoRNA', 'U5_snRNA', 'tasiRNA', 'arginyl_tRNA', 'lnc_RNA', 'MicF_RNA', 'RprA_RNA', 'U4atac_snRNA', 'leucyl_tRNA', 'trans_spliced_mRNA', 'small_regulatory_ncRNA', 'tyrosyl_tRNA', 'glutaminyl_tRNA', 'selenocysteinyl_tRNA', 'U11_snRNA', 'RRE_RNA', 'U14_snoRNA', 'OxyS_RNA', 'SRP_RNA', 'tryptophanyl_tRNA', 'rRNA_16S', 'edited_transcript_by_A_to_I_substitution', 'mRNA_with_minus_1_frameshift', 'rRNA_28S', 'recoded_mRNA', 'seryl_tRNA', 'rRNA_5_8S']),,
+##          'maxmem'               : 0,,
+##          'no_escape'            : True,,
+##          'outfile'              : 'mtDNA1.gtf2',,
+##          'output_format'        : 'GTF2',,
+##          'sorted'               : False,,
+##          'tabix'                : False,,
+##          'warnlevel'            : 0,
+##        }
+NC_012920.1	unknown	exon	3307	4262	.	+	.	gene_id "gene00001"; transcript_id "mRNA00001"; Name "ND1"; ID "mRNA00001";
+NC_012920.1	unknown	CDS	3307	4259	.	+	0	gene_id "gene00001"; transcript_id "mRNA00001"; Name "ND1"; ID "mRNA00001";
+NC_012920.1	unknown	start_codon	3307	3309	.	+	.	gene_id "gene00001"; transcript_id "mRNA00001"; Name "ND1"; ID "mRNA00001";
+NC_012920.1	unknown	stop_codon	4260	4262	.	+	.	gene_id "gene00001"; transcript_id "mRNA00001"; Name "ND1"; ID "mRNA00001";
+NC_012920.1	unknown	exon	4470	5511	.	+	.	gene_id "gene00002"; transcript_id "mRNA00002"; Name "ND2"; ID "mRNA00002";
+NC_012920.1	unknown	CDS	4470	5508	.	+	0	gene_id "gene00002"; transcript_id "mRNA00002"; Name "ND2"; ID "mRNA00002";
+NC_012920.1	unknown	start_codon	4470	4472	.	+	.	gene_id "gene00002"; transcript_id "mRNA00002"; Name "ND2"; ID "mRNA00002";
+NC_012920.1	unknown	stop_codon	5509	5511	.	+	.	gene_id "gene00002"; transcript_id "mRNA00002"; Name "ND2"; ID "mRNA00002";
+NC_012920.1	unknown	exon	5904	7445	.	+	.	gene_id "gene00003"; transcript_id "mRNA00003"; Name "COX1"; ID "mRNA00003";
+NC_012920.1	unknown	CDS	5904	7442	.	+	0	gene_id "gene00003"; transcript_id "mRNA00003"; Name "COX1"; ID "mRNA00003";
+NC_012920.1	unknown	start_codon	5904	5906	.	+	.	gene_id "gene00003"; transcript_id "mRNA00003"; Name "COX1"; ID "mRNA00003";
+NC_012920.1	unknown	stop_codon	7443	7445	.	+	.	gene_id "gene00003"; transcript_id "mRNA00003"; Name "COX1"; ID "mRNA00003";
+NC_012920.1	unknown	exon	7586	8269	.	+	.	gene_id "gene00004"; transcript_id "mRNA00004"; Name "COX2"; ID "mRNA00004";
+NC_012920.1	unknown	CDS	7586	8266	.	+	0	gene_id "gene00004"; transcript_id "mRNA00004"; Name "COX2"; ID "mRNA00004";
+NC_012920.1	unknown	start_codon	7586	7588	.	+	.	gene_id "gene00004"; transcript_id "mRNA00004"; Name "COX2"; ID "mRNA00004";
+NC_012920.1	unknown	stop_codon	8267	8269	.	+	.	gene_id "gene00004"; transcript_id "mRNA00004"; Name "COX2"; ID "mRNA00004";
+NC_012920.1	unknown	exon	8366	8572	.	+	.	gene_id "gene00005"; transcript_id "mRNA00005"; Name "ATP8"; ID "mRNA00005";
+NC_012920.1	unknown	CDS	8366	8569	.	+	0	gene_id "gene00005"; transcript_id "mRNA00005"; Name "ATP8"; ID "mRNA00005";
+NC_012920.1	unknown	start_codon	8366	8368	.	+	.	gene_id "gene00005"; transcript_id "mRNA00005"; Name "ATP8"; ID "mRNA00005";
+NC_012920.1	unknown	stop_codon	8570	8572	.	+	.	gene_id "gene00005"; transcript_id "mRNA00005"; Name "ATP8"; ID "mRNA00005";
+NC_012920.1	unknown	exon	8527	9207	.	+	.	gene_id "gene00006"; transcript_id "mRNA00006"; Name "ATP6"; ID "mRNA00006";
+NC_012920.1	unknown	CDS	8527	9204	.	+	0	gene_id "gene00006"; transcript_id "mRNA00006"; Name "ATP6"; ID "mRNA00006";
+NC_012920.1	unknown	start_codon	8527	8529	.	+	.	gene_id "gene00006"; transcript_id "mRNA00006"; Name "ATP6"; ID "mRNA00006";
+NC_012920.1	unknown	stop_codon	9205	9207	.	+	.	gene_id "gene00006"; transcript_id "mRNA00006"; Name "ATP6"; ID "mRNA00006";
+NC_012920.1	unknown	exon	9207	9990	.	+	.	gene_id "gene00007"; transcript_id "mRNA00007"; Name "COX3"; ID "mRNA00007";
+NC_012920.1	unknown	CDS	9207	9987	.	+	0	gene_id "gene00007"; transcript_id "mRNA00007"; Name "COX3"; ID "mRNA00007";
+NC_012920.1	unknown	start_codon	9207	9209	.	+	.	gene_id "gene00007"; transcript_id "mRNA00007"; Name "COX3"; ID "mRNA00007";
+NC_012920.1	unknown	stop_codon	9988	9990	.	+	.	gene_id "gene00007"; transcript_id "mRNA00007"; Name "COX3"; ID "mRNA00007";
+NC_012920.1	unknown	exon	10059	10404	.	+	.	gene_id "gene00008"; transcript_id "mRNA00008"; Name "ND3"; ID "mRNA00008";
+NC_012920.1	unknown	CDS	10059	10401	.	+	0	gene_id "gene00008"; transcript_id "mRNA00008"; Name "ND3"; ID "mRNA00008";
+NC_012920.1	unknown	start_codon	10059	10061	.	+	.	gene_id "gene00008"; transcript_id "mRNA00008"; Name "ND3"; ID "mRNA00008";
+NC_012920.1	unknown	stop_codon	10402	10404	.	+	.	gene_id "gene00008"; transcript_id "mRNA00008"; Name "ND3"; ID "mRNA00008";
+NC_012920.1	unknown	exon	10470	10766	.	+	.	gene_id "gene00009"; transcript_id "mRNA00009"; Name "ND4L"; ID "mRNA00009";
+NC_012920.1	unknown	CDS	10470	10763	.	+	0	gene_id "gene00009"; transcript_id "mRNA00009"; Name "ND4L"; ID "mRNA00009";
+NC_012920.1	unknown	start_codon	10470	10472	.	+	.	gene_id "gene00009"; transcript_id "mRNA00009"; Name "ND4L"; ID "mRNA00009";
+NC_012920.1	unknown	stop_codon	10764	10766	.	+	.	gene_id "gene00009"; transcript_id "mRNA00009"; Name "ND4L"; ID "mRNA00009";
+NC_012920.1	unknown	exon	10760	12137	.	+	.	gene_id "gene00010"; transcript_id "mRNA00010"; Name "ND4"; ID "mRNA00010";
+NC_012920.1	unknown	CDS	10760	12134	.	+	0	gene_id "gene00010"; transcript_id "mRNA00010"; Name "ND4"; ID "mRNA00010";
+NC_012920.1	unknown	start_codon	10760	10762	.	+	.	gene_id "gene00010"; transcript_id "mRNA00010"; Name "ND4"; ID "mRNA00010";
+NC_012920.1	unknown	stop_codon	12135	12137	.	+	.	gene_id "gene00010"; transcript_id "mRNA00010"; Name "ND4"; ID "mRNA00010";
+NC_012920.1	unknown	exon	12337	14148	.	+	.	gene_id "gene00011"; transcript_id "mRNA00011"; Name "ND5"; ID "mRNA00011";
+NC_012920.1	unknown	CDS	12337	14145	.	+	0	gene_id "gene00011"; transcript_id "mRNA00011"; Name "ND5"; ID "mRNA00011";
+NC_012920.1	unknown	start_codon	12337	12339	.	+	.	gene_id "gene00011"; transcript_id "mRNA00011"; Name "ND5"; ID "mRNA00011";
+NC_012920.1	unknown	stop_codon	14146	14148	.	+	.	gene_id "gene00011"; transcript_id "mRNA00011"; Name "ND5"; ID "mRNA00011";
+NC_012920.1	unknown	exon	14149	14673	.	-	.	gene_id "gene00012"; transcript_id "mRNA00012"; Name "ND6"; ID "mRNA00012";
+NC_012920.1	unknown	CDS	14152	14673	.	-	0	gene_id "gene00012"; transcript_id "mRNA00012"; Name "ND6"; ID "mRNA00012";
+NC_012920.1	unknown	start_codon	14671	14673	.	-	.	gene_id "gene00012"; transcript_id "mRNA00012"; Name "ND6"; ID "mRNA00012";
+NC_012920.1	unknown	stop_codon	14149	14151	.	-	.	gene_id "gene00012"; transcript_id "mRNA00012"; Name "ND6"; ID "mRNA00012";
+NC_012920.1	unknown	exon	14748	15888	.	+	.	gene_id "gene00013"; transcript_id "mRNA00013"; Name "CYTB"; ID "mRNA00013";
+NC_012920.1	unknown	CDS	14748	15885	.	+	0	gene_id "gene00013"; transcript_id "mRNA00013"; Name "CYTB"; ID "mRNA00013";
+NC_012920.1	unknown	start_codon	14748	14750	.	+	.	gene_id "gene00013"; transcript_id "mRNA00013"; Name "CYTB"; ID "mRNA00013";
+NC_012920.1	unknown	stop_codon	15886	15888	.	+	.	gene_id "gene00013"; transcript_id "mRNA00013"; Name "CYTB"; ID "mRNA00013";
