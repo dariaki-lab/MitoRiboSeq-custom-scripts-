@@ -47,6 +47,6 @@ NC_012920.1	unknown	gene	14089	14673	.	-	0	ID=gene00012;Name=ND6; color=#AAAAAA
 NC_012920.1	unknown	mRNA	14089	14673	.	-	0	ID=mRNA00012;Parent=gene00012;Name=ND6; color=#0000FF
 NC_012920.1	unknown	CDS	14089	14673	.	-	0	ID=cds00012;Parent=mRNA00012;Name=ND6; color=#0000FF
 
-NC_012920.1	unknown	gene	14748	15948	.	+	0	ID=gene00013;Name=CYTB; color=#AAAAAA
-NC_012920.1	unknown	mRNA	14748	15948	.	+	0	ID=mRNA00013;Parent=gene00013;Name=CYTB; color=#0000FF
-NC_012920.1	unknown	CDS	14748	15948	.	+	0	ID=cds00013;Parent=mRNA00013;Name=CYTB; color=#0000FF
+NC_012920.1	unknown	gene	14747	15948	.	+	0	ID=gene00013;Name=CYTB; color=#AAAAAA
+NC_012920.1	unknown	mRNA	14747	15948	.	+	0	ID=mRNA00013;Parent=gene00013;Name=CYTB; color=#0000FF
+NC_012920.1	unknown	CDS	14747	15948	.	+	0	ID=cds00013;Parent=mRNA00013;Name=CYTB; color=#0000FF
