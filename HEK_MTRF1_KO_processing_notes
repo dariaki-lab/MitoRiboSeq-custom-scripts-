@@ -1,0 +1,65 @@
+HEK: WT and MTRF1 KO
+From sequencing reads to occupancy tables and plots
+Use this guide to compare WT with MTRF1 KO samples in HEK cells. Commands are reusable examples. Adapt the inputs and settings to your experiment before running them.
+Original script/workflow credit: Annika Krüger, recorded as creator or editor of the supplied source documents.
+1. Prepare your samples
+Condition	Replicate display labels
+WT	WT1; WT2; WT3
+MTRF1 KO	MTRF1 KO1; MTRF1 KO2; MTRF1 KO3
+
+Use unique file IDs such as HEK_WT1 and HEK_MTRF1_MTRF1A_dKO3. The labels above are template slots: enter the actual replicate metadata for your experiment.
+Make a working sample CSV containing the six intended HEK samples above. Set sample_sheet in HEK_settings.json to that CSV and set r_analysis.condition_order to ["WT", "MTRF1 KO"]. Use a separate output_dir for this comparison.
+Required sample columns: sample_id, cell_line, condition, replicate, sample_label, fastq_path, vector_folder and offset_file. FASTQ files may keep their original filenames. Python --samples filters processing only; R reads every row for the configured cell line in sample_sheet.
+Inputs to supply
+Input	What to check
+Sequencing reads	FASTQ paths for each sample; the supplied alignment wrapper uses single-end reads.
+Reference and annotation	Alignment FASTA, GTF/BED and start-region ROI files must use matching sequence names and coordinates.
+Offsets and R inputs	Reviewed offsets for retained read lengths, gene-to-vector TSV mapping and matching analysis sequences.
+
+Keep the scripts and supporting configuration files together. Run commands from that directory. Existing count vectors can enter at the R analysis step after the same input review.
+
+ 2. Configure and process reads
+Use HEK_settings.json as an editable example. Its current values come from the source workflow; choose values that match your library preparation, reference and quality checks.
+Setting	Adapt for your experiment
+adapter; read-length ranges	Enter the library adapter and the length range used at each stage.
+Reference and output paths	Set reference_fasta, bowtie2_index, annotation_gtf, annotation_bed, ROI paths and output directories.
+Offset calibration	For standard plastid P-site calibration at start codons, set offset_roi_key to roi_start and provide the corresponding ROI file. The supplied profiles currently select roi_stop; review this explicitly.
+Review flag	Set settings_confirmed to true only after checking the processing settings. Final offsets and mapping_site are reviewed in step 3.
+
+Install tools once
+conda env create -f preprocess_environment.yml
+conda env create -f plastid_environment.yml
+Rscript install_R_packages.R
+Requirements: Python 3.9+, Cutadapt, Bowtie2, SAMtools, plastid and R. The environment files are installation examples; record the software versions you use.
+Preview and run
+PROFILE=HEK
+python3 01_process_reads.py --analysis "$PROFILE" --stage align --dry-run
+The preview prints commands and does not process data. After checking the paths and settings, run:
+conda activate mitoribo-preprocessing
+python3 01_process_reads.py --analysis "$PROFILE" --stage index
+python3 01_process_reads.py --analysis "$PROFILE" --stage trim
+python3 01_process_reads.py --analysis "$PROFILE" --stage align
+conda activate mitoribo-plastid
+python3 01_process_reads.py --analysis "$PROFILE" --stage psite
+Index builds the reference index; trim removes adapters and filters lengths; align produces sorted, indexed BAM files; psite produces candidate offsets and calibration plots. Review the alignment and calibration outputs before continuing.
+
+ 3. Review offsets and analyze vectors
+Confirm the mapped ribosome position
+Standard plastid psite estimates P-site offsets using start-codon windows. Inspect the plots and check whether that method fits your footprint protocol. Supply a reviewed offset for every retained read length and record mapping_site as P, A or custom. This field records the chosen position; it does not convert offsets to another ribosome site.
+Set each sample’s offset_file, or the shared offset_file in the JSON settings. Inspect phasing by read length after applying the final offsets, then export counts and vectors.
+python3 01_process_reads.py --analysis "$PROFILE" --stage phase
+python3 01_process_reads.py --analysis "$PROFILE" --stage counts
+python3 01_process_reads.py --analysis "$PROFILE" --stage vectors
+Check R coordinates and run
+In HEK_transcripts.tsv, check Gene, vector_file, sequence_gene and vector_start_1based. The start is the 1-based vector position corresponding to the first base of the selected analysis sequence. Confirm strand orientation, reading frame and sequence extent, then set r_analysis.coordinates_confirmed to true. The included per-gene FASTA is an R sequence lookup; it is not a replacement for the alignment reference.
+Rscript 02_analyze_vectors.R "$PROFILE"
+R uses jsonlite, dplyr and ggplot2. For existing vectors, set r_analysis.vector_dir to their root directory and vector_folder to each sample’s folder name; use the matching vector filenames in the TSV.
+Outputs and interpretation
+Output	Purpose
+BAMs, logs and phasing	Review alignment, retained read lengths and offset behavior.
+Counts and vectors	Transcript-level counts and per-nucleotide mapped counts.
+analysis/ tables and plots	Sample metadata, codon occupancy, nucleotide counts and coordinate/QC summaries; candidate-stop summaries are exploratory.
+
+Codon occupancy is the sum of three adjacent nucleotide counts divided by the total counts in the selected sequence region, multiplied by 100. Condition averages are descriptive summaries; the scripts do not perform differential hypothesis tests.
+For another cell line or reference, adapt a settings copy, sample table and gene mapping. WORKFLOW.md gives the custom-config commands and the full input-field reference. Keep your final settings, software versions and repository release or commit with the analysis.
+plastid P-site calibration documentation
